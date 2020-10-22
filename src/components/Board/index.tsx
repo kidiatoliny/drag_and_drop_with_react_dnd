@@ -10,11 +10,16 @@ const Board: React.FC = () => {
 
   const [lists, setLists] = useState(data)
 
-  function moveCard (fromList:any, from:number, to:number){
+  function moveCard (
+    fromList:number,
+    toList:number,
+    from:number,
+    to:number
+    ){
     setLists(produce(lists, draft=>{
       const dragged = draft[fromList].cards[from]
       draft[fromList].cards.splice(from,1)
-      draft[fromList].cards.splice(to,0,dragged)
+      draft[toList].cards.splice(to,0,dragged)
 
     }))
   }

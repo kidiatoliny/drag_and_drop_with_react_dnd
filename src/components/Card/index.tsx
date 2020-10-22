@@ -42,11 +42,11 @@ const Card: React.FC <CardProps> = ({ data, index, listIndex }) => {
     accept: 'CARD',
     hover(item:DraggedItem, monitor) {
       const draggedListIndex = item.listIndex
-      // const targetListIndex = listIndex
+       const targetListIndex = listIndex
       const draggedIndex = item.index
       const targetIndex = index
 
-      if(draggedIndex === targetIndex){
+      if(draggedIndex === targetIndex && draggedListIndex === targetListIndex){
         return
       }
 
@@ -63,9 +63,10 @@ const Card: React.FC <CardProps> = ({ data, index, listIndex }) => {
         return
       }
 
-      moveCard(draggedListIndex, draggedIndex, targetIndex)
+      moveCard(draggedListIndex, targetListIndex, draggedIndex, targetIndex)
 
-      item.index=targetIndex
+      item.index = targetIndex
+      item.listIndex = targetListIndex
     }
   })
 
