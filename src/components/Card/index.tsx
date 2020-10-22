@@ -1,8 +1,7 @@
 import React from 'react';
-
+import { useDrag } from 'react-dnd'
 import { Container, Label } from './styles';
 
-import avatar  from '../../assets/avatar.png'
 
 interface Card {
   id: number,
@@ -16,8 +15,16 @@ interface CardProps {
 }
 
 const Card: React.FC <CardProps> = ({ data }) => {
+
+  const [{isDragging}, dragRef] = useDrag({
+    item:{ type:'CARD'},
+    collect: monitor => ({
+      isDragging: monitor.isDragging()
+    })
+  })
+
   return (
-    <Container>
+    <Container ref={dragRef} isDragging={isDragging}>
       <header>
         {
           data.labels.map(label=><Label key={label} color={label}/>)
