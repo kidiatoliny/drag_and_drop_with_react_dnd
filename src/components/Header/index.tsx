@@ -5,7 +5,7 @@ import React from 'react';
 const Header: React.FC = () => {
   return (
     <Container>
-      <h2>Pipefy Clone</h2>
+      <h2>Pipefy Clone Example</h2>
     </Container>
   );
 }
