@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+interface Props{
+  done:boolean
+}
+export const Container = styled.div<Props>`
   padding: 0 15px;
-  height:100%;
+  height:100vh;
   flex: 0 0 320px;
+  opacity: ${ props => props.done ? 0.6 : 1};
   & + div {
     border-left: 1px solid rgba(0,0,0, 0.1);
   }
