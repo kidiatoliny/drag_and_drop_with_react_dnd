@@ -7,9 +7,20 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html, body {
+    height:100%;
+  }
+
+
   body {
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
+    -webkit-font-smoothing:antialiased !important;
     font: 400 16px Roboto, sans-serif;
   }
+
+  ul{
+    list-style:none;
+  }
+
 `
